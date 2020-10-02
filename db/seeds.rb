@@ -5,3 +5,13 @@
 restaurants = Category.create(name: "Restaurants")
 bars = Category.create(name: "Bars")
 retail = Category.create(name: "Retail")
+
+Business.create(
+  name: "Somewhere That's Green",
+  description: "Plant store in the Old Mill",
+  street_address: "661 SW Powerhouse Dr suite 1301",
+  city: "Bend",
+  state: "OR",
+  zipcode: 97702,
+  category_id: retail.id
+)

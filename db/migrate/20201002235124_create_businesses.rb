@@ -9,6 +9,7 @@ class CreateBusinesses < ActiveRecord::Migration[6.0]
       t.integer :latitude
       t.integer :longitude
       t.text :description
+      t.string :website
       t.integer :category_id
 
       t.timestamps

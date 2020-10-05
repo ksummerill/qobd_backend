@@ -13,5 +13,6 @@ Business.create(
   city: "Bend",
   state: "OR",
   zipcode: 97702,
+  website: "https://www.somewheregreen.com/",
   category_id: retail.id
 )

@@ -1,4 +1,5 @@
 class Api::V1::BusinessesController < ApplicationController
+  # skip_before_action :authorized, only: [:index]
 
   def index
     businesses = Business.all
@@ -6,9 +7,10 @@ class Api::V1::BusinessesController < ApplicationController
   end
 
   def create
+    # raise params.inspect
     business = Business.new(business_params)
     if business.save
-      render json: business, status: :accepted
+      render json: BusinessSerializer.new(business), status: :accepted
     else
       render json: {errors: business.errors.full_messages}, status: :unprocessible_entity
     end
@@ -17,6 +19,7 @@ class Api::V1::BusinessesController < ApplicationController
   private
 
   def business_params
-    params.require(:business).permit(:name, :street_address, :city, :state, :zipcode, :description, :website, :category_id)
+    # byebug
+    params.require(:business).permit(:name, :description, :website, :street_address, :city, :state, :zipcode, :category_id)
   end
 end

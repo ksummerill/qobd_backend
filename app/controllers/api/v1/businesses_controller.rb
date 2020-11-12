@@ -1,8 +1,11 @@
 class Api::V1::BusinessesController < ApplicationController
   # skip_before_action :authorized, only: [:index]
 
+  # show all businesses that fall under one cateogry
   def index
+    # binding.pry
     businesses = Business.all
+
     render json: BusinessSerializer.new(businesses)
   end
 
